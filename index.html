@@ -38,44 +38,24 @@
       height: 300px;
       margin: 10px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       cursor: pointer;
-      position: relative;
     }
     .fact-card:hover {
       border-color: #ff4500;
       transform: scale(1.02);
     }
-    .fact-details {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.2);
-      border: 2px solid #00ff7f;
-      padding: 10px;
-      overflow-y: auto;
-      flex-direction: column;
-      justify-content: space-between;
+    .fact-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
-    .fact-details.show {
-      display: flex;
-    }
-    .more-button {
-      background: #ff4500;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .more-button:hover {
-      background: #ff6500;
+    .fact-brief {
+      font-size: 0.9rem;
+      padding: 0 10px;
     }
     .carousel-container {
       overflow: hidden;
@@ -87,7 +67,10 @@
     }
     .carousel {
       display: flex;
-      transition: transform 0.5s ease;
+      animation: scroll 60s linear infinite;
+    }
+    .carousel:hover {
+      animation-play-state: paused;
     }
     .carousel-controls {
       position: absolute;
@@ -142,6 +125,10 @@
       font-size: 1.2rem;
       margin-bottom: 10px;
     }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
@@ -165,755 +152,6 @@
   </div>
   <div class="carousel-container z-10">
     <div class="carousel" id="fact-carousel">
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Transkei became part of the Eastern Cape in 1994!</p>
-        <div class="fact-details">
-          <p class="text-sm">Transkei, a Bantustan for the Xhosa, was reincorporated into South Africa in 1994 after apartheid ended, becoming part of the Eastern Cape province.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Transkei', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Xhosa nation traces back over 1,000 years!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Xhosa nation began forming around 900 AD as Bantu-speaking groups settled in southern Africa, with the Xhosa identity solidifying through clans like the Gcaleka by the 16th century.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Xhosa_people', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">King Hintsa was a Xhosa leader in the 1800s!</p>
-        <div class="fact-details">
-          <p class="text-sm">Hintsa ka Khawuta, king of the Xhosa from 1820 to 1835, resisted British expansion but was killed during negotiations, becoming a symbol of Xhosa resilience.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Hintsa_kaKhawuta', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Mfecane was a time of upheaval in the 1800s!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Mfecane (1810s–1830s) was a period of wars and migrations in southern Africa, driven by the rise of the Zulu under Shaka, displacing groups like the Mfengu.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/topic/Mfecane', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The first powered flight took off in 1903!</p>
-        <div class="fact-details">
-          <p class="text-sm">On December 17, 1903, the Wright brothers flew the first powered airplane in Kitty Hawk, North Carolina, lasting 12 seconds.</p>
-          <button class="more-button" onclick="window.open('https://www.nasa.gov/history/120-years-ago-the-first-powered-flight/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Wright brothers revolutionized aviation!</p>
-        <div class="fact-details">
-          <p class="text-sm">Orville and Wilbur Wright invented the first successful airplane, developing controls for flight stability. Their 1903 flight sparked modern aviation.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/biography/Wright-brothers', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Philosophy started with wonder in ancient Greece!</p>
-        <div class="fact-details">
-          <p class="text-sm">Philosophy began around 1200 BCE with thinkers like Thales, evolving through Socrates and Plato, who explored life’s big questions. African philosophy also grew from cultural debates.</p>
-          <button class="more-button" onclick="window.open('https://iep.utm.edu/history-of-african-philosophy/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The theory of evolution changed science!</p>
-        <div class="fact-details">
-          <p class="text-sm">Charles Darwin’s theory of evolution, published in 1859, showed species change through natural selection. It reshaped biology.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/science/evolution-scientific-theory', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Cars are going electric in South Africa!</p>
-        <div class="fact-details">
-          <p class="text-sm">By 2024, South Africa was expanding EV charging infrastructure, with BMW introducing new electric models. This shift helps the planet.</p>
-          <button class="more-button" onclick="window.open('https://www.sciencedirect.com/science/article/pii/S235248552400224X', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Smartphones can fold now!</p>
-        <div class="fact-details">
-          <p class="text-sm">Foldable phones became mainstream by 2024, perfect for photography lovers like you. Tech evolves fast.</p>
-          <button class="more-button" onclick="window.open('https://www.gsmarena.com/tag/foldable-phones', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Planes are getting greener!</p>
-        <div class="fact-details">
-          <p class="text-sm">South Africa started testing sustainable aviation fuel (SAF) by 2024 to reduce emissions. Progress takes effort.</p>
-          <button class="more-button" onclick="window.open('https://www.iata.org/en/programs/sustainability/sustainable-aviation-fuels/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Computers use AI to create art!</p>
-        <div class="fact-details">
-          <p class="text-sm">By 2024, AI tools like DALL-E were generating art, blending tech and creativity.</p>
-          <button class="more-button" onclick="window.open('https://openai.com/dall-e-2', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Writing began over 5,000 years ago!</p>
-        <div class="fact-details">
-          <p class="text-sm">Writing started in Mesopotamia around 3400 BCE with cuneiform, evolving into alphabets. African scripts like Ge’ez also emerged.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/topic/writing', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Civilizations built amazing structures!</p>
-        <div class="fact-details">
-          <p class="text-sm">Ancient civilizations like Egypt built the pyramids around 2700 BCE, while Great Zimbabwe thrived from 900 AD.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Great_Zimbabwe', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Your Xhosa roots trace back to the Bantu Expansion!</p>
-        <div class="fact-details">
-          <p class="text-sm">Starting 4,000 years ago, Bantu peoples migrated from West Africa, bringing farming and ironworking to southern Africa, mixing with Khoisan groups.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Bantu_expansion', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Khoisan were South Africa’s first people!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Khoisan lived here for over 100,000 years, mastering the land. Their click sounds are in Xhosa today, despite centuries of struggle.</p>
-          <button class="more-button" onclick="window.open('https://foreignpolicy.com/2018/10/19/south-africas-first-nations-have-been-forgotten/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">South Africa’s journey to democracy!</p>
-        <div class="fact-details">
-          <p class="text-sm">From Dutch colonization in 1652 to apartheid’s end in 1994, South Africa became a democracy. In 2024, the ANC lost its majority, showing change never stops.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/History_of_South_Africa', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Great Zimbabwe was a Bantu masterpiece!</p>
-        <div class="fact-details">
-          <p class="text-sm">Built between AD 900 and 1300, Great Zimbabwe was a thriving trade hub with stone architecture, linked to your Bantu ancestors.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Great_Zimbabwe', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The first car was invented in 1886!</p>
-        <div class="fact-details">
-          <p class="text-sm">Karl Benz built the first gasoline-powered car in 1886, sparking the automotive age.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/technology/automobile/History-of-the-automobile', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Telephones started with Alexander Graham Bell!</p>
-        <div class="fact-details">
-          <p class="text-sm">In 1876, Alexander Graham Bell invented the telephone, revolutionizing communication.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/technology/telephone', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The first computer was massive!</p>
-        <div class="fact-details">
-          <p class="text-sm">The ENIAC, built in 1945, was the first general-purpose computer, weighing 30 tons.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/technology/ENIAC', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Writing in Africa has ancient roots!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Ge’ez script in Ethiopia dates back to 800 BCE, used for sacred texts.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Ge%27ez_script', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Khoisan hunted with poison arrows!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Khoisan used poison-tipped arrows for hunting, a skill developed over millennia.</p>
-          <button class="more-button" onclick="window.open('https://www.sanbi.org/biodiversity/khoisan-heritage/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Xhosa resisted British rule for 100 years!</p>
-        <div class="fact-details">
-          <p class="text-sm">From 1779 to 1879, the Xhosa fought nine wars against British settlers, defending their land.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Xhosa_Wars', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">South Africa’s first people lived 100,000 years ago!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Khoisan, South Africa’s earliest inhabitants, date back over 100,000 years, leaving rock art across the region.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Khoisan', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Zulu Empire rose in the 1800s!</p>
-        <div class="fact-details">
-          <p class="text-sm">Shaka Zulu founded the Zulu Empire in 1818, uniting Nguni clans through military might.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Zulu_Kingdom', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The first plane flew for 12 seconds!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Wright brothers’ first flight in 1903 covered 120 feet in 12 seconds, a small start for a big leap.</p>
-          <button class="more-button" onclick="window.open('https://www.nasa.gov/history/120-years-ago-the-first-powered-flight/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Philosophy debates shaped African thought!</p>
-        <div class="fact-details">
-          <p class="text-sm">African philosophy grew through debates in the 20th century, with thinkers like Kwasi Wiredu questioning cultural identity.</p>
-          <button class="more-button" onclick="window.open('https://iep.utm.edu/history-of-african-philosophy/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Evolution explains life’s diversity!</p>
-        <div class="fact-details">
-          <p class="text-sm">Darwin’s theory of evolution showed how species adapt over time, like how Xhosa culture adapted to challenges.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/science/evolution-scientific-theory', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Cars now drive themselves!</p>
-        <div class="fact-details">
-          <p class="text-sm">By 2024, self-driving cars from companies like Tesla were becoming common, using AI to navigate.</p>
-          <button class="more-button" onclick="window.open('https://www.nhtsa.gov/vehicle-manufacturers/automated-driving-systems', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Telephones went wireless!</p>
-        <div class="fact-details">
-          <p class="text-sm">The first mobile phone call was made in 1973 by Martin Cooper, leading to today’s wireless world.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/technology/mobile-telephone', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Computers power virtual reality!</p>
-        <div class="fact-details">
-          <p class="text-sm">By 2024, VR headsets like the Meta Quest 3 used powerful computers for immersive experiences.</p>
-          <button class="more-button" onclick="window.open('https://www.meta.com/quest/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Writing created history!</p>
-        <div class="fact-details">
-          <p class="text-sm">Writing let ancient Sumerians record laws and stories, preserving knowledge for millennia.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/topic/writing', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Civilizations invented farming!</p>
-        <div class="fact-details">
-          <p class="text-sm">Farming began around 10,000 BCE in the Fertile Crescent, letting civilizations grow.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/topic/agriculture', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Bantu languages spread across Africa!</p>
-        <div class="fact-details">
-          <p class="text-sm">Bantu languages like Xhosa spread during the Bantu expansion, connecting millions.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Bantu_languages', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Khoisan survived by adapting!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Khoisan adapted to harsh deserts, using their deep knowledge of nature.</p>
-          <button class="more-button" onclick="window.open('https://www.sanbi.org/biodiversity/khoisan-heritage/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Nelson Mandela became president in 1994!</p>
-        <div class="fact-details">
-          <p class="text-sm">Nelson Mandela, a Xhosa, became South Africa’s first Black president in 1994, ending apartheid.</p>
-          <button class="more-button" onclick="window.open('https://www.sahistory.org.za/people/nelson-mandela', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Wright brothers were bike makers!</p>
-        <div class="fact-details">
-          <p class="text-sm">Before planes, the Wright brothers ran a bicycle shop, using their skills to build the first airplane.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/biography/Wright-brothers', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Philosophy inspired democracy!</p>
-        <div class="fact-details">
-          <p class="text-sm">Thinkers like John Locke influenced modern democracy with ideas of freedom and rights.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/topic/democracy', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Evolution shows survival of the fittest!</p>
-        <div class="fact-details">
-          <p class="text-sm">Darwin’s idea of “survival of the fittest” means the best-adapted species thrive.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/science/evolution-scientific-theory', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Cars are 3D-printed now!</p>
-        <div class="fact-details">
-          <p class="text-sm">By 2024, companies like Czinger were 3D-printing car parts, making production faster.</p>
-          <button class="more-button" onclick="window.open('https://www.czinger.com/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Telephones use 5G now!</p>
-        <div class="fact-details">
-          <p class="text-sm">By 2024, 5G networks made phones faster, with speeds up to 10 Gbps.</p>
-          <button class="more-button" onclick="window.open('https://www.qualcomm.com/5g/what-is-5g', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Computers predict the future!</p>
-        <div class="fact-details">
-          <p class="text-sm">AI on computers can now predict weather, traffic, and more with high accuracy by 2024.</p>
-          <button class="more-button" onclick="window.open('https://www.ibm.com/weather', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Writing inspired revolutions!</p>
-        <div class="fact-details">
-          <p class="text-sm">Books like “Common Sense” by Thomas Paine in 1776 sparked revolutions.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/topic/Common-Sense-by-Thomas-Paine', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Civilizations invented cities!</p>
-        <div class="fact-details">
-          <p class="text-sm">Uruk, in Mesopotamia, was one of the first cities around 3500 BCE, housing thousands.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/place/Uruk', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Bantu people created art!</p>
-        <div class="fact-details">
-          <p class="text-sm">Bantu groups made pottery and carvings, expressing their culture.</p>
-          <button class="more-button" onclick="window.open('https://www.metmuseum.org/exhibitions/listings/2015/bantu-art', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Khoisan used stars to navigate!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Khoisan used the stars to guide their travels across deserts.</p>
-          <button class="more-button" onclick="window.open('https://www.sanbi.org/biodiversity/khoisan-heritage/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">South Africa hosted the World Cup!</p>
-        <div class="fact-details">
-          <p class="text-sm">In 2010, South Africa became the first African nation to host the FIFA World Cup, uniting the world.</p>
-          <button class="more-button" onclick="window.open('https://www.fifa.com/tournaments/mens/worldcup/2010-south-africa', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Wright brothers flew four times!</p>
-        <div class="fact-details">
-          <p class="text-sm">On December 17, 1903, the Wright brothers made four flights, the longest lasting 59 seconds.</p>
-          <button class="more-button" onclick="window.open('https://www.nasa.gov/history/120-years-ago-the-first-powered-flight/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Philosophy explores ubuntu!</p>
-        <div class="fact-details">
-          <p class="text-sm">Ubuntu, an African philosophy, means “I am because we are,” emphasizing community.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Ubuntu_philosophy', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Evolution discovered fossils!</p>
-        <div class="fact-details">
-          <p class="text-sm">Fossils like “Lucy” (3.2 million years old) proved human evolution, found in Ethiopia in 1974.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/science/human-evolution', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Cars race at 200 mph!</p>
-        <div class="fact-details">
-          <p class="text-sm">Formula 1 cars hit speeds over 200 mph by 2024, thanks to advanced engineering.</p>
-          <button class="more-button" onclick="window.open('https://www.formula1.com/en/statistics', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Telephones take amazing photos!</p>
-        <div class="fact-details">
-          <p class="text-sm">By 2024, phones like the iPhone 15 had 48MP cameras, perfect for photography.</p>
-          <button class="more-button" onclick="window.open('https://www.apple.com/iphone-15/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Computers help doctors!</p>
-        <div class="fact-details">
-          <p class="text-sm">AI on computers diagnoses diseases faster by 2024, saving lives.</p>
-          <button class="more-button" onclick="window.open('https://www.ibm.com/watson-health', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Writing created laws!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Code of Hammurabi, written in 1754 BCE, was one of the first legal codes.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/topic/Code-of-Hammurabi', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Civilizations invented wheels!</p>
-        <div class="fact-details">
-          <p class="text-sm">The wheel was invented around 3500 BCE in Mesopotamia, changing transport.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/technology/wheel', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Bantu people traded widely!</p>
-        <div class="fact-details">
-          <p class="text-sm">Bantu groups traded goods like iron tools and pottery across Africa.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Bantu_peoples', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Khoisan lived sustainably!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Khoisan lived off the land, using resources wisely for millennia.</p>
-          <button class="more-button" onclick="window.open('https://www.sanbi.org/biodiversity/khoisan-heritage/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">South Africa has 11 official languages!</p>
-        <div class="fact-details">
-          <p class="text-sm">Since 1994, South Africa recognizes 11 languages, including Xhosa, to celebrate diversity.</p>
-          <button class="more-button" onclick="window.open('https://www.gov.za/about-sa/languages', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Wright brothers won a medal!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Wright brothers received the Congressional Gold Medal in 1909 for their aviation work.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/biography/Wright-brothers', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Philosophy values wisdom!</p>
-        <div class="fact-details">
-          <p class="text-sm">The word “philosophy” means “love of wisdom,” seeking truth through reason.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/topic/philosophy', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Evolution connects all life!</p>
-        <div class="fact-details">
-          <p class="text-sm">All life shares a common ancestor, evolving over billions of years, Darwin showed.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/science/evolution-scientific-theory', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Cars are safer than ever!</p>
-        <div class="fact-details">
-          <p class="text-sm">By 2024, cars had advanced safety features like automatic braking, reducing accidents globally.</p>
-          <button class="more-button" onclick="window.open('https://www.nhtsa.gov/equipment/safety-features', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Telephones stream movies!</p>
-        <div class="fact-details">
-          <p class="text-sm">By 2024, phones could stream 4K movies anywhere with 5G.</p>
-          <button class="more-button" onclick="window.open('https://www.qualcomm.com/5g/what-is-5g', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Computers teach themselves!</p>
-        <div class="fact-details">
-          <p class="text-sm">Machine learning lets computers improve on their own by 2024, like how you learn.</p>
-          <button class="more-button" onclick="window.open('https://www.ibm.com/topics/machine-learning', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Writing built empires!</p>
-        <div class="fact-details">
-          <p class="text-sm">Ancient Rome used writing to manage its empire, from laws to letters.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/place/ancient-Rome', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Civilizations invented money!</p>
-        <div class="fact-details">
-          <p class="text-sm">Money started in Lydia around 1200 BCE with coins, changing trade.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/topic/money', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Bantu people formed kingdoms!</p>
-        <div class="fact-details">
-          <p class="text-sm">Bantu groups like the Kongo Kingdom thrived by 1300, ruling vast areas.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Kingdom_of_Kongo', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Khoisan told stories!</p>
-        <div class="fact-details">
-          <p class="text-sm">Khoisan stories explained the world, passed down through generations.</p>
-          <button class="more-button" onclick="window.open('https://www.sanbi.org/biodiversity/khoisan-heritage/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">South Africa celebrates freedom!</p>
-        <div class="fact-details">
-          <p class="text-sm">Freedom Day on April 27 marks the 1994 election, a victory for all.</p>
-          <button class="more-button" onclick="window.open('https://www.gov.za/FreedomDay2024', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Wright brothers never gave up!</p>
-        <div class="fact-details">
-          <p class="text-sm">Despite many failures, the Wright brothers kept experimenting until they flew.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/biography/Wright-brothers', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Philosophy values community!</p>
-        <div class="fact-details">
-          <p class="text-sm">African philosophy, like ubuntu, teaches the value of community over self.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Ubuntu_philosophy', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Evolution takes time!</p>
-        <div class="fact-details">
-          <p class="text-sm">Species evolve over millions of years, adapting slowly.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/science/evolution-scientific-theory', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Cars are part of culture!</p>
-        <div class="fact-details">
-          <p class="text-sm">Car culture in South Africa includes spinning, a motorsport born in townships.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Spinning_(motorsport)', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Telephones changed music!</p>
-        <div class="fact-details">
-          <p class="text-sm">Phones let you stream music anywhere by 2024, with apps like Spotify.</p>
-          <button class="more-button" onclick="window.open('https://www.spotify.com/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Computers explore space!</p>
-        <div class="fact-details">
-          <p class="text-sm">Computers on spacecraft like the James Webb Telescope (2021) study the universe.</p>
-          <button class="more-button" onclick="window.open('https://webb.nasa.gov/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Writing changed religion!</p>
-        <div class="fact-details">
-          <p class="text-sm">Writing sacred texts like the Bible spread religions worldwide.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/topic/Bible', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Civilizations invented medicine!</p>
-        <div class="fact-details">
-          <p class="text-sm">Ancient Egypt used herbal medicine by 1500 BCE, laying the foundation for modern healthcare.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/science/medicine', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Bantu people loved music!</p>
-        <div class="fact-details">
-          <p class="text-sm">Bantu groups used drums and songs in ceremonies, a tradition Xhosa carry on.</p>
-          <button class="more-button" onclick="window.open('https://www.metmuseum.org/exhibitions/listings/2015/bantu-art', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Khoisan respected nature!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Khoisan lived in harmony with nature, only taking what they needed.</p>
-          <button class="more-button" onclick="window.open('https://www.sanbi.org/biodiversity/khoisan-heritage/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">South Africa fights for equality!</p>
-        <div class="fact-details">
-          <p class="text-sm">Since 1994, South Africa has worked for equality, though challenges remain.</p>
-          <button class="more-button" onclick="window.open('https://www.gov.za/about-sa/history', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Wright brothers inspired millions!</p>
-        <div class="fact-details">
-          <p class="text-sm">Their flight inspired dreamers worldwide to reach for the skies.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/biography/Wright-brothers', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Philosophy values community!</p>
-        <div class="fact-details">
-          <p class="text-sm">African philosophy, like ubuntu, teaches the value of community over self.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Ubuntu_philosophy', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Evolution shapes culture!</p>
-        <div class="fact-details">
-          <p class="text-sm">Human evolution led to culture, as we developed language and art.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/science/human-evolution', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Cars save lives with tech!</p>
-        <div class="fact-details">
-          <p class="text-sm">By 2024, cars used AI to prevent crashes, reducing accidents globally.</p>
-          <button class="more-button" onclick="window.open('https://www.nhtsa.gov/equipment/safety-features', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Telephones are mini computers!</p>
-        <div class="fact-details">
-          <p class="text-sm">Modern phones have more power than the computers that sent Apollo 11 to the moon.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/technology/smartphone', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Cars use solar power now!</p>
-        <div class="fact-details">
-          <p class="text-sm">By 2024, solar-powered cars like the Lightyear 0 were hitting the market, using the sun to drive.</p>
-          <button class="more-button" onclick="window.open('https://www.lightyear.one/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Telephones connect the world!</p>
-        <div class="fact-details">
-          <p class="text-sm">By 2024, over 5 billion people used mobile phones, connecting globally.</p>
-          <button class="more-button" onclick="window.open('https://www.statista.com/statistics/274774/forecast-of-mobile-phone-users-worldwide/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Computers run on quantum power!</p>
-        <div class="fact-details">
-          <p class="text-sm">By 2024, quantum computers from Google and IBM were solving complex problems faster than ever.</p>
-          <button class="more-button" onclick="window.open('https://quantum.google/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Writing evolved with technology!</p>
-        <div class="fact-details">
-          <p class="text-sm">From typewriters in the 1800s to digital keyboards, writing tech keeps advancing.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/technology/typewriter', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Civilizations invented math!</p>
-        <div class="fact-details">
-          <p class="text-sm">Ancient Babylonians developed math around 2000 BCE, creating systems we still use.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/science/mathematics', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Bantu people built communities!</p>
-        <div class="fact-details">
-          <p class="text-sm">Bantu groups formed villages and chiefdoms, creating strong social bonds across Africa.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Bantu_peoples', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Khoisan shared knowledge!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Khoisan passed down knowledge orally, from hunting to healing.</p>
-          <button class="more-button" onclick="window.open('https://www.sanbi.org/biodiversity/khoisan-heritage/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The ANC was founded in 1912!</p>
-        <div class="fact-details">
-          <p class="text-sm">The African National Congress, key to ending apartheid, was founded in 1912 to fight for equality.</p>
-          <button class="more-button" onclick="window.open('https://www.sahistory.org.za/article/history-anc', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Wright brothers tested 200 wings!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Wright brothers tested over 200 wing designs to perfect their airplane.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/biography/Wright-brothers', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Philosophy inspired science!</p>
-        <div class="fact-details">
-          <p class="text-sm">Philosophers like Descartes laid the groundwork for modern science by emphasizing reason.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/topic/philosophy', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Evolution includes humans!</p>
-        <div class="fact-details">
-          <p class="text-sm">Humans evolved from early primates over 6 million years, adapting to walk upright.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/science/human-evolution', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Cars can fly now—sort of!</p>
-        <div class="fact-details">
-          <p class="text-sm">By 2024, companies like Joby Aviation were testing flying cars, or eVTOLs, for urban travel.</p>
-          <button class="more-button" onclick="window.open('https://www.jobyaviation.com/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Computers fit in your pocket now!</p>
-        <div class="fact-details">
-          <p class="text-sm">Smartphones today are more powerful than early computers, with billions using them by 2024.</p>
-          <button class="more-button" onclick="window.open('https://www.statista.com/statistics/330695/number-of-smartphone-users-worldwide/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Writing spread knowledge globally!</p>
-        <div class="fact-details">
-          <p class="text-sm">The invention of the printing press in 1440 by Gutenberg made books widespread, sharing ideas.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/technology/printing-press', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Civilizations traded across continents!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Silk Road connected Asia, Africa, and Europe by 200 BCE, trading goods and ideas.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/topic/Silk-Road-trade-route', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Bantu people brought ironworking!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Bantu expansion spread ironworking across Africa, revolutionizing farming and tools.</p>
-          <button class="more-button" onclick="window.open('https://en.wikipedia.org/wiki/Bantu_expansion', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Khoisan created rock art!</p>
-        <div class="fact-details">
-          <p class="text-sm">Khoisan rock art, dating back 20,000 years, tells stories of their lives.</p>
-          <button class="more-button" onclick="window.open('https://www.sanbi.org/biodiversity/khoisan-heritage/', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Apartheid ended in 1994!</p>
-        <div class="fact-details">
-          <p class="text-sm">Apartheid, a system of racial segregation, ended in 1994 with South Africa’s first democratic election.</p>
-          <button class="more-button" onclick="window.open('https://www.sahistory.org.za/article/history-south-africa', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">The Wright brothers inspired space travel!</p>
-        <div class="fact-details">
-          <p class="text-sm">The Wright brothers’ flight led to aviation advances that eventually reached space, like the 1969 moon landing.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/biography/Wright-brothers', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Philosophy questions everything!</p>
-        <div class="fact-details">
-          <p class="text-sm">Philosophy evolved to question reality, ethics, and existence, from Aristotle to modern African thinkers like Hountondji.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/topic/philosophy', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
-      <div class="fact-card p-4 rounded-lg" onclick="toggleFact(this)">
-        <p class="text-lg font-semibold">Evolution happens slowly!</p>
-        <div class="fact-details">
-          <p class="text-sm">Evolution takes millions of years, with species adapting to their environment, like how humans developed tools.</p>
-          <button class="more-button" onclick="window.open('https://www.britannica.com/science/evolution-scientific-theory', '_blank'); event.stopPropagation();">More</button>
-        </div>
-      </div>
     </div>
     <div class="carousel-controls">
       <button onclick="scrollCarousel('left')">←</button>
@@ -939,20 +177,151 @@
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     document.getElementById('days-counter').textContent = diffDays;
 
-    // Carousel functionality
+    // Carousel functionality with randomization
+    const factsData = [
+      { title: "Transkei Became Eastern Cape", brief: "Transkei joined South Africa in 1994 as part of the Eastern Cape after apartheid ended.", link: "https://en.wikipedia.org/wiki/Transkei" },
+      { title: "Xhosa Nation Founded", brief: "The Xhosa nation started forming around 900 AD through Bantu clans.", link: "https://en.wikipedia.org/wiki/Xhosa_people" },
+      { title: "King Hintsa’s Legacy", brief: "Hintsa ka Khawuta led the Xhosa from 1820 to 1835, resisting British rule.", link: "https://en.wikipedia.org/wiki/Hintsa_kaKhawuta" },
+      { title: "The Mfecane Upheaval", brief: "The Mfecane (1810s–1830s) was a chaotic time driven by Zulu expansion under Shaka.", link: "https://www.britannica.com/topic/Mfecane" },
+      { title: "First Powered Flight", brief: "The Wright brothers flew for 12 seconds in 1903, starting aviation history.", link: "https://www.nasa.gov/history/120-years-ago-the-first-powered-flight/" },
+      { title: "Wright Brothers’ Impact", brief: "Orville and Wilbur Wright revolutionized aviation with their 1903 airplane.", link: "https://www.britannica.com/biography/Wright-brothers" },
+      { title: "Philosophy’s Beginnings", brief: "Philosophy started in ancient Greece around 1200 BCE with thinkers like Thales.", link: "https://iep.utm.edu/history-of-african-philosophy/" },
+      { title: "Theory of Evolution", brief: "Charles Darwin’s evolution theory, published in 1859, reshaped biology.", link: "https://www.britannica.com/science/evolution-scientific-theory" },
+      { title: "Electric Cars in SA", brief: "By 2024, South Africa expanded EV charging with BMW’s electric models.", link: "https://www.sciencedirect.com/science/article/pii/S235248552400224X" },
+      { title: "Foldable Smartphones", brief: "Foldable phones became mainstream by 2024, great for photography.", link: "https://www.gsmarena.com/tag/foldable-phones" },
+      { title: "Greener Planes", brief: "South Africa tested sustainable aviation fuel (SAF) by 2024 to cut emissions.", link: "https://www.iata.org/en/programs/sustainability/sustainable-aviation-fuels/" },
+      { title: "AI Art Creation", brief: "By 2024, AI tools like DALL-E were generating art using computers.", link: "https://openai.com/dall-e-2" },
+      { title: "Writing’s Origins", brief: "Writing began in Mesopotamia around 3400 BCE with cuneiform.", link: "https://www.britannica.com/topic/writing" },
+      { title: "Ancient Structures", brief: "Egypt built pyramids around 2700 BCE; Great Zimbabwe thrived from 900 AD.", link: "https://en.wikipedia.org/wiki/Great_Zimbabwe" },
+      { title: "Bantu Expansion", brief: "Starting 4,000 years ago, Bantu peoples shaped Xhosa roots.", link: "https://en.wikipedia.org/wiki/Bantu_expansion" },
+      { title: "Khoisan First People", brief: "The Khoisan lived in South Africa for over 100,000 years.", link: "https://foreignpolicy.com/2018/10/19/south-africas-first-nations-have-been-forgotten/" },
+      { title: "SA’s Democracy Journey", brief: "Apartheid ended in 1994; the ANC lost its majority in 2024.", link: "https://en.wikipedia.org/wiki/History_of_South_Africa" },
+      { title: "Great Zimbabwe", brief: "Great Zimbabwe, a Bantu hub, thrived between 900 and 1300 AD.", link: "https://en.wikipedia.org/wiki/Great_Zimbabwe" },
+      { title: "First Car Invented", brief: "Karl Benz built the first car in 1886, starting the automotive age.", link: "https://www.britannica.com/technology/automobile/History-of-the-automobile" },
+      { title: "Telephone Invention", brief: "Alexander Graham Bell invented the telephone in 1876.", link: "https://www.britannica.com/technology/telephone" },
+      { title: "First Computer", brief: "The ENIAC, built in 1945, was the first general-purpose computer.", link: "https://www.britannica.com/technology/ENIAC" },
+      { title: "African Writing", brief: "The Ge’ez script in Ethiopia dates back to 800 BCE.", link: "https://en.wikipedia.org/wiki/Ge%27ez_script" },
+      { title: "Khoisan Hunting", brief: "Khoisan used poison-tipped arrows for hunting over millennia.", link: "https://www.sanbi.org/biodiversity/khoisan-heritage/" },
+      { title: "Xhosa Resistance", brief: "The Xhosa fought British rule from 1779 to 1879.", link: "https://en.wikipedia.org/wiki/Xhosa_Wars" },
+      { title: "SA’s Earliest People", brief: "Khoisan lived in South Africa 100,000 years ago, leaving rock art.", link: "https://en.wikipedia.org/wiki/Khoisan" },
+      { title: "Zulu Empire", brief: "Shaka Zulu founded the Zulu Empire in 1818.", link: "https://en.wikipedia.org/wiki/Zulu_Kingdom" },
+      { title: "First Plane Flight", brief: "The Wright brothers’ 1903 flight lasted 12 seconds.", link: "https://www.nasa.gov/history/120-years-ago-the-first-powered-flight/" },
+      { title: "African Philosophy", brief: "20th-century African philosophy debates shaped thought.", link: "https://iep.utm.edu/history-of-african-philosophy/" },
+      { title: "Evolution’s Diversity", brief: "Darwin’s theory explains life’s diversity through adaptation.", link: "https://www.britannica.com/science/evolution-scientific-theory" },
+      { title: "Self-Driving Cars", brief: "By 2024, self-driving cars used AI to navigate.", link: "https://www.nhtsa.gov/vehicle-manufacturers/automated-driving-systems" },
+      { title: "Wireless Telephones", brief: "The first mobile call was made in 1973 by Martin Cooper.", link: "https://www.britannica.com/technology/mobile-telephone" },
+      { title: "Virtual Reality", brief: "VR headsets like Meta Quest 3 were powered by computers in 2024.", link: "https://www.meta.com/quest/" },
+      { title: "Writing History", brief: "Sumerians recorded history with writing around 3400 BCE.", link: "https://www.britannica.com/topic/writing" },
+      { title: "Farming Invention", brief: "Farming began around 10,000 BCE in the Fertile Crescent.", link: "https://www.britannica.com/topic/agriculture" },
+      { title: "Bantu Languages", brief: "Bantu languages like Xhosa spread during the Bantu expansion.", link: "https://en.wikipedia.org/wiki/Bantu_languages" },
+      { title: "Khoisan Adaptation", brief: "Khoisan adapted to deserts with deep nature knowledge.", link: "https://www.sanbi.org/biodiversity/khoisan-heritage/" },
+      { title: "Mandela’s Presidency", brief: "Nelson Mandela became South Africa’s first Black president in 1994.", link: "https://www.sahistory.org.za/people/nelson-mandela" },
+      { title: "Wright Brothers’ Career", brief: "The Wright brothers were bike makers before building planes.", link: "https://www.britannica.com/biography/Wright-brothers" },
+      { title: "Philosophy and Democracy", brief: "John Locke’s ideas on freedom influenced modern democracy.", link: "https://www.britannica.com/topic/democracy" },
+      { title: "Survival of the Fittest", brief: "Darwin’s “survival of the fittest” shows species adaptation.", link: "https://www.britannica.com/science/evolution-scientific-theory" },
+      { title: "3D-Printed Cars", brief: "By 2024, Czinger was 3D-printing car parts for faster production.", link: "https://www.czinger.com/" },
+      { title: "5G Telephones", brief: "5G networks made phones faster by 2024, up to 10 Gbps.", link: "https://www.qualcomm.com/5g/what-is-5g" },
+      { title: "Future Prediction", brief: "AI on computers predicted weather and traffic by 2024.", link: "https://www.ibm.com/weather" },
+      { title: "Revolutionary Writing", brief: "Thomas Paine’s “Common Sense” in 1776 sparked revolutions.", link: "https://www.britannica.com/topic/Common-Sense-by-Thomas-Paine" },
+      { title: "First Cities", brief: "Uruk in Mesopotamia was a city by 3500 BCE, housing thousands.", link: "https://www.britannica.com/place/Uruk" },
+      { title: "Bantu Art", brief: "Bantu groups made pottery and carvings to express culture.", link: "https://www.metmuseum.org/exhibitions/listings/2015/bantu-art" },
+      { title: "Khoisan Navigation", brief: "Khoisan used stars to navigate deserts.", link: "https://www.sanbi.org/biodiversity/khoisan-heritage/" },
+      { title: "SA World Cup", brief: "South Africa hosted the FIFA World Cup in 2010.", link: "https://www.fifa.com/tournaments/mens/worldcup/2010-south-africa" },
+      { title: "Wright Brothers’ Flights", brief: "The Wright brothers made four flights in 1903.", link: "https://www.nasa.gov/history/120-years-ago-the-first-powered-flight/" },
+      { title: "Ubuntu Philosophy", brief: "Ubuntu means “I am because we are,” emphasizing community.", link: "https://en.wikipedia.org/wiki/Ubuntu_philosophy" },
+      { title: "Fossil Discovery", brief: "“Lucy,” found in 1974, proved human evolution (3.2 million years old).", link: "https://www.britannica.com/science/human-evolution" },
+      { title: "F1 Car Speeds", brief: "Formula 1 cars hit over 200 mph by 2024.", link: "https://www.formula1.com/en/statistics" },
+      { title: "Phone Photography", brief: "iPhone 15 had 48MP cameras by 2024 for photography.", link: "https://www.apple.com/iphone-15/" },
+      { title: "Computers in Medicine", brief: "AI on computers helped diagnose diseases by 2024.", link: "https://www.ibm.com/watson-health" },
+      { title: "Hammurabi’s Code", brief: "The Code of Hammurabi in 1754 BCE was an early legal code.", link: "https://www.britannica.com/topic/Code-of-Hammurabi" },
+      { title: "Wheel Invention", brief: "The wheel was invented in Mesopotamia around 3500 BCE.", link: "https://www.britannica.com/technology/wheel" },
+      { title: "Bantu Trade", brief: "Bantu traded iron tools and pottery across Africa.", link: "https://en.wikipedia.org/wiki/Bantu_peoples" },
+      { title: "Khoisan Sustainability", brief: "Khoisan lived sustainably, using resources wisely.", link: "https://www.sanbi.org/biodiversity/khoisan-heritage/" },
+      { title: "SA’s Languages", brief: "South Africa has 11 official languages since 1994.", link: "https://www.gov.za/about-sa/languages" },
+      { title: "Wright Brothers’ Medal", brief: "The Wright brothers won a Congressional Gold Medal in 1909.", link: "https://www.britannica.com/biography/Wright-brothers" },
+      { title: "Philosophy’s Meaning", brief: "Philosophy means “love of wisdom,” seeking truth.", link: "https://www.britannica.com/topic/philosophy" },
+      { title: "Life’s Common Ancestor", brief: "Evolution shows all life shares a common ancestor.", link: "https://www.britannica.com/science/evolution-scientific-theory" },
+      { title: "Car Safety Tech", brief: "Cars in 2024 used AI for automatic braking to reduce accidents.", link: "https://www.nhtsa.gov/equipment/safety-features" },
+      { title: "Phone Movie Streaming", brief: "Phones streamed 4K movies with 5G by 2024.", link: "https://www.qualcomm.com/5g/what-is-5g" },
+      { title: "Self-Teaching Computers", brief: "Machine learning let computers improve by 2024.", link: "https://www.ibm.com/topics/machine-learning" },
+      { title: "Writing and Empires", brief: "Ancient Rome used writing to manage its empire.", link: "https://www.britannica.com/place/ancient-Rome" },
+      { title: "Money’s Origin", brief: "Money started with coins in Lydia around 1200 BCE.", link: "https://www.britannica.com/topic/money" },
+      { title: "Bantu Kingdoms", brief: "The Kongo Kingdom thrived by 1300, a Bantu group.", link: "https://en.wikipedia.org/wiki/Kingdom_of_Kongo" },
+      { title: "Khoisan Stories", brief: "Khoisan passed down stories to explain the world.", link: "https://www.sanbi.org/biodiversity/khoisan-heritage/" },
+      { title: "Freedom Day", brief: "Freedom Day on April 27 marks the 1994 election.", link: "https://www.gov.za/FreedomDay2024" },
+      { title: "Wright Brothers’ Perseverance", brief: "The Wright brothers kept experimenting despite failures.", link: "https://www.britannica.com/biography/Wright-brothers" },
+      { title: "Community in Philosophy", brief: "African philosophy values community over self.", link: "https://en.wikipedia.org/wiki/Ubuntu_philosophy" },
+      { title: "Evolution’s Timeline", brief: "Species evolve over millions of years.", link: "https://www.britannica.com/science/evolution-scientific-theory" },
+      { title: "Car Culture in SA", brief: "Spinning, a motorsport, is part of South African culture.", link: "https://en.wikipedia.org/wiki/Spinning_(motorsport)" },
+      { title: "Phones and Music", brief: "Phones streamed music via Spotify by 2024.", link: "https://www.spotify.com/" },
+      { title: "Space Exploration", brief: "The James Webb Telescope (2021) studies the universe.", link: "https://webb.nasa.gov/" },
+      { title: "Writing and Religion", brief: "Writing the Bible spread religions worldwide.", link: "https://www.britannica.com/topic/Bible" },
+      { title: "Ancient Medicine", brief: "Egypt used herbal medicine by 1500 BCE.", link: "https://www.britannica.com/science/medicine" },
+      { title: "Bantu Music", brief: "Bantu used drums and songs in ceremonies.", link: "https://www.metmuseum.org/exhibitions/listings/2015/bantu-art" },
+      { title: "Khoisan and Nature", brief: "Khoisan lived in harmony with nature.", link: "https://www.sanbi.org/biodiversity/khoisan-heritage/" },
+      { title: "Equality in SA", brief: "South Africa has fought for equality since 1994.", link: "https://www.gov.za/about-sa/history" },
+      { title: "Wright Brothers’ Inspiration", brief: "The Wright brothers inspired dreamers worldwide.", link: "https://www.britannica.com/biography/Wright-brothers" },
+      { title: "Philosophy’s Community Value", brief: "Ubuntu teaches the value of community.", link: "https://en.wikipedia.org/wiki/Ubuntu_philosophy" },
+      { title: "Cultural Evolution", brief: "Human evolution led to culture with language and art.", link: "https://www.britannica.com/science/human-evolution" },
+      { title: "AI in Cars", brief: "By 2024, cars used AI to prevent crashes.", link: "https://www.nhtsa.gov/equipment/safety-features" },
+      { title: "Phones as Computers", brief: "Modern phones are more powerful than Apollo 11 computers.", link: "https://www.britannica.com/technology/smartphone" },
+      { title: "Solar-Powered Cars", brief: "The Lightyear 0 used solar power by 2024.", link: "https://www.lightyear.one/" },
+      { title: "Global Phone Use", brief: "Over 5 billion people used mobile phones by 2024.", link: "https://www.statista.com/statistics/274774/forecast-of-mobile-phone-users-worldwide/" },
+      { title: "Quantum Computing", brief: "Quantum computers solved complex problems by 2024.", link: "https://quantum.google/" },
+      { title: "Writing Tech Evolution", brief: "Writing evolved from typewriters to keyboards.", link: "https://www.britannica.com/technology/typewriter" },
+      { title: "Math’s Origin", brief: "Babylonians developed math around 2000 BCE.", link: "https://www.britannica.com/science/mathematics" },
+      { title: "Bantu Communities", brief: "Bantu formed villages and chiefdoms across Africa.", link: "https://en.wikipedia.org/wiki/Bantu_peoples" },
+      { title: "Khoisan Knowledge", brief: "Khoisan shared knowledge orally across generations.", link: "https://www.sanbi.org/biodiversity/khoisan-heritage/" },
+      { title: "ANC Founding", brief: "The ANC was founded in 1912 to fight for equality.", link: "https://www.sahistory.org.za/article/history-anc" },
+      { title: "Wright Brothers’ Designs", brief: "The Wright brothers tested over 200 wing designs.", link: "https://www.britannica.com/biography/Wright-brothers" },
+      { title: "Philosophy and Science", brief: "Descartes’ reason laid the groundwork for science.", link: "https://www.britannica.com/topic/philosophy" },
+      { title: "Human Evolution", brief: "Humans evolved from primates over 6 million years.", link: "https://www.britannica.com/science/human-evolution" },
+      { title: "Flying Cars", brief: "Joby Aviation tested flying cars (eVTOLs) by 2024.", link: "https://www.jobyaviation.com/" },
+      { title: "Powerful Smartphones", brief: "Smartphones outpowered early computers by 2024.", link: "https://www.statista.com/statistics/330695/number-of-smartphone-users-worldwide/" },
+      { title: "Printing Press", brief: "Gutenberg’s printing press in 1440 spread knowledge.", link: "https://www.britannica.com/technology/printing-press" },
+      { title: "Silk Road Trade", brief: "The Silk Road connected continents by 200 BCE.", link: "https://www.britannica.com/topic/Silk-Road-trade-route" },
+      { title: "Bantu Ironworking", brief: "Bantu expansion spread ironworking 4,000 years ago.", link: "https://en.wikipedia.org/wiki/Bantu_expansion" },
+      { title: "Khoisan Rock Art", brief: "Khoisan rock art dates back 20,000 years.", link: "https://www.sanbi.org/biodiversity/khoisan-heritage/" },
+      { title: "Apartheid’s End", brief: "Apartheid ended in 1994 with SA’s first election.", link: "https://www.sahistory.org.za/article/history-south-africa" },
+      { title: "Aviation to Space", brief: "Wright brothers’ flight led to the 1969 moon landing.", link: "https://www.britannica.com/biography/Wright-brothers" },
+      { title: "Philosophy’s Questions", brief: "Philosophy questions reality, ethics, and existence.", link: "https://www.britannica.com/topic/philosophy" },
+      { title: "Slow Evolution", brief: "Evolution takes millions of years for species to adapt.", link: "https://www.britannica.com/science/evolution-scientific-theory" }
+    ];
+    // Randomize facts
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+    const randomizedFacts = shuffle([...factsData]);
     const carousel = document.getElementById('fact-carousel');
-    const facts = carousel.children;
-    const factCount = facts.length;
+    const factCount = randomizedFacts.length;
+    // Populate and clone for infinite scroll
+    randomizedFacts.forEach(fact => {
+      const card = document.createElement('div');
+      card.className = 'fact-card p-4 rounded-lg';
+      card.innerHTML = `
+        <p class="fact-title">${fact.title}</p>
+        <p class="fact-brief">${fact.brief}</p>
+      `;
+      card.onclick = () => window.open(fact.link, '_blank');
+      carousel.appendChild(card);
+    });
+    // Clone for infinite scrolling
     for (let i = 0; i < factCount; i++) {
-      const clone = facts[i].cloneNode(true);
+      const clone = carousel.children[i].cloneNode(true);
+      clone.onclick = () => window.open(randomizedFacts[i].link, '_blank');
       carousel.appendChild(clone);
     }
+    // Fixed scroll functionality
     let position = 0;
     function scrollCarousel(direction) {
-      const cardWidth = facts[0].offsetWidth + 20;
+      const cardWidth = carousel.children[0].offsetWidth + 20; // Include margin
       if (direction === 'left') {
         position += cardWidth;
-        if (position > 0) {
+        if (position >= 0) {
           position = -cardWidth * factCount;
           carousel.style.transition = 'none';
           carousel.style.transform = `translateX(${position}px)`;
@@ -962,6 +331,7 @@
             carousel.style.transform = `translateX(${position}px)`;
           }, 0);
         } else {
+          carousel.style.transition = 'transform 0.5s ease';
           carousel.style.transform = `translateX(${position}px)`;
         }
       } else {
@@ -976,16 +346,9 @@
             carousel.style.transform = `translateX(${position}px)`;
           }, 0);
         } else {
+          carousel.style.transition = 'transform 0.5s ease';
           carousel.style.transform = `translateX(${position}px)`;
         }
-      }
-    }
-    function toggleFact(card) {
-      const details = card.querySelector('.fact-details');
-      const isShown = details.classList.contains('show');
-      document.querySelectorAll('.fact-details').forEach(d => d.classList.remove('show'));
-      if (!isShown) {
-        details.classList.add('show');
       }
     }
 
@@ -1032,4 +395,115 @@
       { question: "What did philosophy inspire in governance?", answer: "democracy" },
       { question: "What does evolution show about species?", answer: "survival of the fittest" },
       { question: "What car manufacturing tech emerged by 2024?", answer: "3D-printing" },
-      { question: "What network made phones faster by 2024?", answer
+      { question: "What network made phones faster by 2024?", answer: "5G" },
+      { question: "What can computers predict by 2024?", answer: "the future" },
+      { question: "What did writing inspire in 1776?", answer: "revolutions" },
+      { question: "What was Uruk in Mesopotamia?", answer: "one of the first cities" },
+      { question: "What art did Bantu people make?", answer: "pottery and carvings" },
+      { question: "How did the Khoisan navigate?", answer: "using stars" },
+      { question: "When did South Africa host the FIFA World Cup?", answer: "2010" },
+      { question: "How many flights did the Wright brothers make in 1903?", answer: "four" },
+      { question: "What is ubuntu in African philosophy?", answer: "I am because we are" },
+      { question: "What fossil proved human evolution in 1974?", answer: "Lucy" },
+      { question: "How fast do Formula 1 cars go by 2024?", answer: "200 mph" },
+      { question: "What phone feature is great for photography by 2024?", answer: "48MP cameras" },
+      { question: "How do computers help doctors by 2024?", answer: "diagnose diseases" },
+      { question: "What was the Code of Hammurabi?", answer: "one of the first legal codes" },
+      { question: "When was the wheel invented?", answer: "3500 BCE" },
+      { question: "What did Bantu people trade?", answer: "iron tools and pottery" },
+      { question: "How did the Khoisan live sustainably?", answer: "using resources wisely" },
+      { question: "How many official languages does South Africa have?", answer: "11" },
+      { question: "What medal did the Wright brothers win?", answer: "Congressional Gold Medal" },
+      { question: "What does the word philosophy mean?", answer: "love of wisdom" },
+      { question: "What does evolution show about life?", answer: "all life shares a common ancestor" },
+      { question: "What car feature reduces accidents by 2024?", answer: "automatic braking" },
+      { question: "What do phones stream in 4K by 2024?", answer: "movies" },
+      { question: "What lets computers improve on their own?", answer: "machine learning" },
+      { question: "How did writing help ancient Rome?", answer: "manage its empire" },
+      { question: "When did money start with coins?", answer: "1200 BCE" },
+      { question: "What Bantu kingdom thrived by 1300?", answer: "Kongo Kingdom" },
+      { question: "How did the Khoisan pass down knowledge?", answer: "orally" },
+      { question: "When is South Africa’s Freedom Day?", answer: "April 27" },
+      { question: "What did the Wright brothers do despite failures?", answer: "kept experimenting" },
+      { question: "What does ubuntu emphasize?", answer: "community" },
+      { question: "How long does evolution take?", answer: "millions of years" },
+      { question: "What motorsport is part of South African culture?", answer: "spinning" },
+      { question: "What app lets phones stream music by 2024?", answer: "Spotify" },
+      { question: "What spacecraft uses computers to study the universe?", answer: "James Webb Telescope" },
+      { question: "What sacred texts did writing spread?", answer: "the Bible" },
+      { question: "When did ancient Egypt use herbal medicine?", answer: "1500 BCE" },
+      { question: "What did Bantu people use in ceremonies?", answer: "drums and songs" },
+      { question: "How did the Khoisan live with nature?", answer: "in harmony" },
+      { question: "What has South Africa worked for since 1994?", answer: "equality" },
+      { question: "Who did the Wright brothers inspire?", answer: "dreamers worldwide" },
+      { question: "What does African philosophy teach?", answer: "value of community" },
+      { question: "What led to human culture in evolution?", answer: "language and art" },
+      { question: "How does AI in cars prevent crashes?", answer: "using safety features" },
+      { question: "What’s more powerful than Apollo 11 computers?", answer: "modern phones" },
+      { question: "What car uses the sun to drive by 2024?", answer: "Lightyear 0" },
+      { question: "How many people used mobile phones by 2024?", answer: "over 5 billion" },
+      { question: "What computers solve complex problems by 2024?", answer: "quantum computers" },
+      { question: "What writing tech advanced from typewriters?", answer: "digital keyboards" },
+      { question: "Who developed math around 2000 BCE?", answer: "Babylonians" },
+      { question: "What did Bantu groups form?", answer: "villages and chiefdoms" },
+      { question: "How did the Khoisan pass down stories?", answer: "orally" },
+      { question: "When was the ANC founded?", answer: "1912" },
+      { question: "How many wing designs did the Wright brothers test?", answer: "over 200" },
+      { question: "Who laid the groundwork for modern science?", answer: "Descartes" },
+      { question: "How long ago did humans evolve from primates?", answer: "6 million years" },
+      { question: "What company tested flying cars by 2024?", answer: "Joby Aviation" },
+      { question: "What are smartphones more powerful than?", answer: "early computers" },
+      { question: "Who invented the printing press in 1440?", answer: "Gutenberg" },
+      { question: "What connected Asia, Africa, and Europe by 200 BCE?", answer: "Silk Road" },
+      { question: "What did the Bantu expansion spread?", answer: "ironworking" },
+      { question: "How far back does Khoisan rock art date?", answer: "20,000 years" },
+      { question: "When did apartheid end?", answer: "1994" },
+      { question: "What did the Wright brothers’ flight lead to?", answer: "space travel" },
+      { question: "What do philosophers question?", answer: "reality, ethics, existence" },
+      { question: "How long ago did species begin evolving?", answer: "billions of years" }
+    ];
+    const randomizedQuestions = shuffle([...quizQuestions]);
+    let currentQuestionIndex = 0;
+    let score = 0;
+    function displayQuestion() {
+      const question = randomizedQuestions[currentQuestionIndex];
+      document.getElementById('quiz-question').textContent = question.question;
+      document.getElementById('quiz-answer').value = '';
+      document.getElementById('quiz-feedback').textContent = '';
+      document.getElementById('quiz-score').textContent = score;
+    }
+    function checkAnswer() {
+      const userAnswer = document.getElementById('quiz-answer').value.trim().toLowerCase();
+      const correctAnswer = randomizedQuestions[currentQuestionIndex].answer.toLowerCase();
+      if (userAnswer === correctAnswer) {
+        score += 10;
+        document.getElementById('quiz-feedback').textContent = 'Correct! +10 points!';
+        document.getElementById('quiz-score').textContent = score;
+      } else {
+        document.getElementById('quiz-feedback').textContent = `Wrong! The answer is "${randomizedQuestions[currentQuestionIndex].answer}".`;
+      }
+    }
+    function revealAnswer() {
+      document.getElementById('quiz-feedback').textContent = `The answer is "${randomizedQuestions[currentQuestionIndex].answer}".`;
+    }
+    function nextQuestion() {
+      currentQuestionIndex = (currentQuestionIndex + 1) % randomizedQuestions.length;
+      displayQuestion();
+    }
+    displayQuestion();
+
+    // Mouse trail effect
+    document.addEventListener('mousemove', (e) => {
+      const trail = document.createElement('div');
+      trail.className = 'absolute w-2 h-2 bg-pink-500 rounded-full';
+      trail.style.left = `${e.pageX}px`;
+      trail.style.top = `${e.pageY}px`;
+      trail.style.opacity = '0.5';
+      document.body.appendChild(trail);
+      setTimeout(() => {
+        trail.remove();
+      }, 500);
+    });
+  </script>
+</body>
+</html>
